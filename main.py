@@ -1,5 +1,5 @@
-from db.client import DBClientPerson
-from db.session import Session
+from db import DBClientPerson
+from db import Session
 
 
 session = Session()

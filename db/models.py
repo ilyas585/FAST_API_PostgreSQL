@@ -14,3 +14,5 @@ class Person(Base):
     spouse_id = Column(Integer, nullable=True)
     kids_ids = Column(ARRAY(Integer))
     is_married = Column(Boolean, nullable=False)
+
+

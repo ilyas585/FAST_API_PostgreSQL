@@ -2,7 +2,7 @@ version: '3.7'
 
 services:
   db:
-    image: postgres:15.2-alpine
+    image: postgres:15.2-bullseye
     environment:
       POSTGRES_DB: ilyas_db
       POSTGRES_USER: ilyas
@@ -10,6 +10,12 @@ services:
     ports:
     - "5432:5432"
 
+  migrate_table:
+    build:
+      context: .
+    container_name: migrate_table
+
 
 # docker-compose up -d --build
 # docker-compose down
+
