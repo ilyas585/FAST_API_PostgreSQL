@@ -9,4 +9,4 @@ COPY . .
 
 #WORKDIR /app/db
 CMD ["python", "create_tables.py"]
-CMD sleep 1500
+#CMD sleep 1500

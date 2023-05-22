@@ -1,7 +1,7 @@
 version: '3.7'
 
 services:
-  db:
+  pg:
     image: postgres:15.2-bullseye
     environment:
       POSTGRES_DB: ilyas_db
@@ -10,10 +10,14 @@ services:
     ports:
     - "5432:5432"
 
-  migrate_table:
-    build:
-      context: .
-    container_name: migrate_table
+#  migrate_table:
+#    build:
+#      context: .
+#    container_name: migrate_table
+#    environment:
+#      SQLALCHEMY_DATABASE_URI: postgresql+psycopg2://ilyas:admin123@pg:5432/ilyas_db
+#    depends_on:
+#      - pg
 
 
 # docker-compose up -d --build
