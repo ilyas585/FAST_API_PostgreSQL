@@ -1,4 +1,4 @@
-version: '3.7'
+version: '2.1'
 
 services:
   pg:
@@ -9,15 +9,21 @@ services:
       POSTGRES_PASSWORD: admin123
     ports:
     - "5432:5432"
+    healthcheck:  # устанавливает значение True для condition если pg_isready==True
+      test: ["CMD-SHELL", "pg_isready -U postgres" ]
+      interval: 5s
+      timeout: 5s
+      retries: 5
 
-#  migrate_table:
-#    build:
-#      context: .
-#    container_name: migrate_table
-#    environment:
-#      SQLALCHEMY_DATABASE_URI: postgresql+psycopg2://ilyas:admin123@pg:5432/ilyas_db
-#    depends_on:
-#      - pg
+  migrate_table:
+    build: .
+    command: bash -c "alembic upgrade head"
+    container_name: migrate_table
+    environment:
+      SQLALCHEMY_DATABASE_URI: postgresql+psycopg2://ilyas:admin123@pg:5432/ilyas_db
+    depends_on:
+      pg:
+        condition: service_healthy  # проверяем живой ли сервис pg?
 
 
 # docker-compose up -d --build

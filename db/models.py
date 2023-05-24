@@ -21,3 +21,8 @@ class Person(Base):
         # return 'id: {}, firstname: {}'.format(self.id, self.firstname)
 
 
+class Product(Base):
+    __tablename__ = "products"
+
+    id = Column(Integer, primary_key=True, index=True)
+    name = Column(String(32), nullable=False)
