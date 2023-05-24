@@ -3,6 +3,7 @@ venv/
 allure-reports/
 allure-results/
 .pytest_cache
+.env
 .idea/
 */.pytest_cache
 
