@@ -25,6 +25,12 @@ services:
       postgres_db:
         condition: service_healthy  # проверяем живой ли сервис pg?
 
+  adminer:
+    image: adminer
+    restart: always
+    ports:
+      - 8080:8080
+
 
 # docker-compose up -d --build
 # docker-compose down

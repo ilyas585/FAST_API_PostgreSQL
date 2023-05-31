@@ -1,5 +1,4 @@
 __all__ = (
-    "Base",
     "Person",
     "engine",
     "Session",
@@ -7,6 +6,6 @@ __all__ = (
 )
 
 
-from .models import Base, Person
+from .models import Person, Product, Keys
 from .session import engine, Session
-from .client import DBClientPerson
+from .client import DBClientPerson, DBClientKeys
