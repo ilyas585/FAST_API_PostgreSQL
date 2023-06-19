@@ -13,8 +13,8 @@ from config import POSTGRES_DB, POSTGRES_USER, POSTGRES_PASSWORD, POSTGRES_HOST,
 #     port=POSTGRES_PORT,
 #     database=POSTGRES_DB
 # )
-
 # engine = create_engine(url)  # движок для подключения к БД
+
 engine = create_engine(SQLALCHEMY_DATABASE_URI)
 
 Session = sessionmaker(bind=engine)
